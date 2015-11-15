@@ -1,10 +1,10 @@
 from django.conf.urls import include, url
 from django.contrib import admin
 
-from home.views import HomeView
+from home.views import (HomeView, TestView)
 
 urlpatterns = [
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^$', TestView.as_view(), name='test'),
+    url(r'^test$', TestView.as_view(), name='test'),
     url(r'^$', HomeView.as_view(), name='home'),
 ]

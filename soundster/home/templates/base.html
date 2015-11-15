@@ -12,12 +12,13 @@
         <title>Soundster</title>
         {% endblock page_title %}
 
+        {% block stylesheets %}
+        <link rel="icon" type="image/png" href="{% static 'favicon-196x196.png' %}" sizes="196x196">
         <!-- Bootstrap -->
         <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
         <link href="{% static 'css/custom.css' %}" rel="stylesheet">
-
-        {% block stylesheets %}
         {% endblock stylesheets %}
+
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -27,7 +28,7 @@
     </head>
     <body>
         {% block navbar %}
-        <nav class="navbar navbar-default navbar-fixed-top">
+        <nav class="navbar navbar-primary navbar-fixed-top">
             <div class="container">
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
@@ -37,7 +38,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Soundster</a>
+                    <a class="navbar-brand" href="{% url 'home' %}">Soundster <span class="glyphicon glyphicon-music" aria-hidden="true"></span></a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,7 +47,7 @@
                         <li class="active"><a href="#">Map <span class="sr-only">(current)</span></a></li>
                     </ul>
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="{% url 'test' %}">Test <span class="sr-only">(current)</span></a></li>
+                        <li><a href="{% url 'test' %}">Test <span class="sr-only">(current)</span></a></li>
                     </ul>
                     <ul class="nav navbar-nav">
                         <li><a href="#">Watch database </a></li>
@@ -55,7 +56,7 @@
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Search">
                         </div>
-                        <button type="submit" class="btn btn-default">Go</button>
+                        <button type="submit" class="btn btn-primary">Go</button>
                     </form>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container -->
@@ -63,22 +64,22 @@
         {% endblock navbar %}
 
 
-        {% block content %}
         <div class="container">
+            {% block content %}
             <div class="jumbotron">
                 <h1>Soundster</h1>
                 <p>Personal project</p>
-                <a class="btn btn-lg btn-primary" href=".#" role="button">Ah ok...</a>
+                <a class="btn btn-lg btn-warning" href=".#" role="button">Ah ok...</a>
                 </p>
             </div>
+            {% endblock content %}
         </div>
-        {% endblock content %}
 
+        {% block javascript %}
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
         <!-- Include all compiled plugins (below), or include individual files as needed -->
         <script src="{% static 'js/bootstrap.min.js' %}"></script>
-        {% block javascript %}
         {% endblock javascript %}
     </body>
 </html>
